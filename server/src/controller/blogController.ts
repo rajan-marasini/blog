@@ -20,6 +20,7 @@ export const createBlog = TryCatch(
         });
 
         return res.status(201).json({
+            success: true,
             message: "Blog created successfully",
             blog,
         });
@@ -31,7 +32,7 @@ export const updateBlog = TryCatch(
         const { blogId } = req.params;
         const { title, description } = req.body;
 
-        await db.blog.update({
+        const blog = await db.blog.update({
             where: { id: blogId },
             data: {
                 title,
@@ -40,7 +41,9 @@ export const updateBlog = TryCatch(
         });
 
         return res.status(200).json({
+            success: true,
             message: "Blog updated successfully",
+            blog,
         });
     }
 );
@@ -54,6 +57,7 @@ export const deleteBlog = TryCatch(
         });
 
         return res.status(200).json({
+            success: true,
             message: "Blog deleted successfully",
         });
     }
@@ -66,6 +70,9 @@ export const getAllBlogs = TryCatch(
                 user: {
                     select: { name: true },
                 },
+            },
+            orderBy: {
+                createdAt: "desc",
             },
         });
 

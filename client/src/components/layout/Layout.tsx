@@ -3,7 +3,7 @@ import Header from "./Header";
 
 const Layout = () => {
     return (
-        <div className="container">
+        <div className="container py-4">
             <Header />
             <div>
                 <Outlet />

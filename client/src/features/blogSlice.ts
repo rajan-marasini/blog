@@ -18,20 +18,16 @@ const blogSlice = createSlice({
             state.blogs = action.payload;
         },
         addBlog: (state, action) => {
-            state.blogs.push(action.payload);
+            state.blogs.unshift(action.payload);
         },
         updateBlog: (state, action) => {
-            const blog = state.blogs.find(
-                (blog) => blog.id === action.payload.id
+            state.blogs = state.blogs.map((blog) =>
+                blog.id === action.payload.id ? action.payload : blog
             );
-            if (blog) {
-                blog.title = action.payload.title;
-                blog.description = action.payload.description;
-            }
         },
         deleteBlog: (state, action) => {
             state.blogs = state.blogs.filter(
-                (blog) => blog.id !== action.payload.id
+                (blog) => blog.id !== action.payload
             );
         },
     },

@@ -1,5 +1,6 @@
 import { logout } from "@/api/user.api";
 import { Button } from "@/components/ui/button";
+import { SearchSelector, setSearch } from "@/features/searchSlice";
 import { UserSelector, setUser } from "@/features/userSlice";
 import axios from "axios";
 import { LogIn, LogOut, Search } from "lucide-react";
@@ -10,8 +11,9 @@ import { ModeToggle } from "../mode-toggle";
 import { Input } from "../ui/input";
 
 const Header = () => {
-    const user = useSelector(UserSelector);
     const dispatch = useDispatch();
+    const user = useSelector(UserSelector);
+    const search = useSelector(SearchSelector);
 
     const handleLogout = async () => {
         try {
@@ -41,12 +43,15 @@ const Header = () => {
             <div className="flex items-center rounded-md px-2 py-1 w-full max-w-lg border-2">
                 <Input
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Search Blogs"
                     className="bg-transparent border-none focus:border-none focus:outline-none"
+                    value={search}
+                    onChange={(e) => dispatch(setSearch(e.target.value))}
                 />
-                <Button variant={"ghost"} className="ml-2">
+
+                <div className="px-3">
                     <Search />
-                </Button>
+                </div>
             </div>
 
             {/* Sign In Button */}
