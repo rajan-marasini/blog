@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
+import { handleError } from "./middleware/errorMiddleware";
+import { userRoute } from "./routes/userRoute";
 
 dotenv.config();
 
@@ -17,6 +19,9 @@ app.use(cors());
 app.get("/", (req, res) => {
     res.send("Hello World");
 });
+
+app.use("/api/v1/user", userRoute);
+app.use(handleError);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
