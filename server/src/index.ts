@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
 import { handleError } from "./middleware/errorMiddleware";
+import { blogRoute } from "./routes/blogRoute";
 import { userRoute } from "./routes/userRoute";
 
 dotenv.config();
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/user", userRoute);
+app.use("/api/v1/blog", blogRoute);
 app.use(handleError);
 
 const PORT = process.env.PORT || 8000;

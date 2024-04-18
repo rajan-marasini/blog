@@ -63,7 +63,7 @@ export const userLogin = TryCatch(
             })
             .json({
                 success: true,
-                message: "User logged in successfully",
+                message: "Successfully Logged in",
                 user,
             });
     }
