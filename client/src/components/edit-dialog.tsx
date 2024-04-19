@@ -9,6 +9,8 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { updateBlog } from "@/features/blogSlice";
 import { BlogType } from "@/types/types";
 import axios from "axios";
@@ -17,8 +19,6 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
 
 interface Props {
     blog: BlogType;

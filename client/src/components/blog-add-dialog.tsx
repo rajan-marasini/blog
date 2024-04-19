@@ -9,14 +9,14 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { addBlog } from "@/features/blogSlice";
 import axios from "axios";
 import { PlusIcon } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
 
 const BlogAddDialog = () => {
     const dispatch = useDispatch();

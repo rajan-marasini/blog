@@ -1,13 +1,13 @@
+import App from "@/App.tsx";
 import { ThemeProvider } from "@/components/theme-provider";
 import UserContextProvider from "@/context/userContextProvider.tsx";
+import "@/index.css";
+import { store } from "@/store.ts";
 import axios from "axios";
 import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App.tsx";
-import "./index.css";
-import { store } from "./store.ts";
 
 axios.defaults.baseURL = "https://blog-fawn-beta.vercel.app";
 axios.defaults.withCredentials = true;

@@ -1,3 +1,5 @@
+import { DeleteConfirmation } from "@/components/delete-alert-dialog";
+import { EditDialougeButton } from "@/components/edit-dialog";
 import {
     Card,
     CardContent,
@@ -9,8 +11,6 @@ import { UserSelector } from "@/features/userSlice";
 import { BlogType } from "@/types/types";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { DeleteConfirmation } from "../delete-alert-dialog";
-import { EditDialougeButton } from "../edit-dialog";
 
 interface Props {
     blog: BlogType;

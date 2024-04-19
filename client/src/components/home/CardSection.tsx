@@ -1,4 +1,8 @@
 import { get_all_blogs } from "@/api/blog.api";
+import BlogAddDialog from "@/components/blog-add-dialog";
+import BlogCard from "@/components/home/BlogCard";
+import Loader from "@/components/home/Loader";
+import { Button } from "@/components/ui/button";
 import { BlogSelector, setBlogs } from "@/features/blogSlice";
 import { SearchSelector } from "@/features/searchSlice";
 import { UserSelector } from "@/features/userSlice";
@@ -6,10 +10,6 @@ import { EyeIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import BlogAddDialog from "../blog-add-dialog";
-import { Button } from "../ui/button";
-import BlogCard from "./BlogCard";
-import Loader from "./Loader";
 
 const CardSection = () => {
     const dispatch = useDispatch();
