@@ -3,7 +3,7 @@
 **Fronend (React.js)**
 
 -   Components: Resuable UI components for the user interface.
--   Redux: State management for handling user authentication, profiles, posts, and notifications.
+-   Redux: State management for handling user authentication and blogs
 -   React Router: Navigation and routing between different pages.
 -   Axios: HTTP client for making API requests to the backend.
 
