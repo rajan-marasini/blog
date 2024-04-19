@@ -60,8 +60,4 @@
 
 -   Open your browser and navigate to http://localhost:5173 to view the application.
 
-## Conclusion
-
-The Social Media MERN Application provides a robust platform for users to connect, share, and interact within a social networking environment. Continuous development and enhancements aim to improve user experience and engagement.
-
 **Thank you for using our Blog Application**
