@@ -16,7 +16,12 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(
     cors({
-        origin: ["http://localhost:5173"],
+        origin: [
+            "http://localhost:5173",
+            "https://blog-client-mocha.vercel.app",
+            "https://blog-client-razan-marasinis-projects.vercel.app",
+            "https://blog-client-git-main-razan-marasinis-projects.vercel.app",
+        ],
         credentials: true,
     })
 );
