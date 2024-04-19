@@ -45,6 +45,13 @@ export const updateBlog = TryCatch(
                 title,
                 description,
             },
+            include: {
+                user: {
+                    select: {
+                        name: true,
+                    },
+                },
+            },
         });
 
         return res.status(200).json({
