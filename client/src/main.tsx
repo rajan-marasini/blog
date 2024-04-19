@@ -9,7 +9,7 @@ import App from "./App.tsx";
 import "./index.css";
 import { store } from "./store.ts";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "https://blog-fawn-beta.vercel.app";
 axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
