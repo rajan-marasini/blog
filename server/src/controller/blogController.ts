@@ -17,6 +17,13 @@ export const createBlog = TryCatch(
                     },
                 },
             },
+            include: {
+                user: {
+                    select: {
+                        name: true,
+                    },
+                },
+            },
         });
 
         return res.status(201).json({
@@ -88,6 +95,16 @@ export const getAllBlogsOfCurrentUser = TryCatch(
 
         const blogs = await db.blog.findMany({
             where: { userId },
+            include: {
+                user: {
+                    select: {
+                        name: true,
+                    },
+                },
+            },
+            orderBy: {
+                createdAt: "desc",
+            },
         });
         return res.status(200).json({ blogs });
     }

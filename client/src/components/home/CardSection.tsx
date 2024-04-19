@@ -3,12 +3,13 @@ import { BlogSelector, setBlogs } from "@/features/blogSlice";
 import { SearchSelector } from "@/features/searchSlice";
 import { UserSelector } from "@/features/userSlice";
 import { EyeIcon } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import BlogAddDialog from "../blog-add-dialog";
 import { Button } from "../ui/button";
-import Blog from "./Blog";
+import BlogCard from "./BlogCard";
+import Loader from "./Loader";
 
 const CardSection = () => {
     const dispatch = useDispatch();
@@ -16,10 +17,14 @@ const CardSection = () => {
     const Blogs = useSelector(BlogSelector);
     const search = useSelector(SearchSelector);
 
+    const [isLoading, setIsLoading] = useState(false);
+
     useEffect(() => {
         const getAllBlogs = async () => {
+            setIsLoading(true);
             const data = await get_all_blogs();
             dispatch(setBlogs(data.blogs));
+            setIsLoading(false);
         };
         getAllBlogs();
     }, [dispatch]);
@@ -28,7 +33,7 @@ const CardSection = () => {
         blog.title.toLowerCase().includes(search.toLowerCase())
     );
 
-    return (
+    return !isLoading ? (
         <div>
             <div className="flex justify-between items-center my-8 flex-col md:flex-row">
                 <h2 className="text-2xl font-bold">Check out our new Blogs</h2>
@@ -46,10 +51,12 @@ const CardSection = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                 {filteredBlogs.map((blog, i) => (
-                    <Blog blog={blog} key={i} />
+                    <BlogCard blog={blog} key={i} />
                 ))}
             </div>
         </div>
+    ) : (
+        <Loader />
     );
 };
 

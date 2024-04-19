@@ -32,5 +32,10 @@ export const update_a_blog = async (
 
 export const get_a_blog = async (id: string) => {
     const { data } = await axios.get(`/api/v1/blog/${id}`);
-    return data.blog;
+    return data;
+};
+
+export const get_my_blogs = async () => {
+    const { data } = await axios.get("/api/v1/blog/all-my-blogs");
+    return data;
 };

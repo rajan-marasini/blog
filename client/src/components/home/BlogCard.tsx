@@ -16,11 +16,11 @@ interface Props {
     blog: BlogType;
 }
 
-export default function CardWithForm({ blog }: Props) {
+export default function BlogCard({ blog }: Props) {
     const user = useSelector(UserSelector);
 
     return (
-        <Card className="w-full">
+        <Card className="w-full hover:scale-105 transition-all duration-300 border-2 border-gray-300 hover:shadow-lg">
             <Link to={`/blog/${blog.id}`}>
                 <CardHeader>
                     <CardTitle>{blog.title}</CardTitle>

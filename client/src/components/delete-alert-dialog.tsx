@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { deleteBlog } from "@/features/blogSlice";
+import axios from "axios";
 import { Trash } from "lucide-react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
@@ -32,6 +33,8 @@ export function DeleteConfirmation({ id }: Props) {
             }
         } catch (error) {
             console.error(error);
+            if (axios.isAxiosError(error) && error.response)
+                toast.error(error.response.data.message);
         }
     };
 
